@@ -3,8 +3,9 @@ import java.util.Map;
 import java.util.Scanner;
 
 class User {
+    
     String name;
-    int pin;
+    public int pin;
     double balance;
     StringBuilder transactionHistory;
 
@@ -14,16 +15,17 @@ class User {
         this.balance = balance;
         this.transactionHistory = new StringBuilder();
     }
+    
 }
 
 public class ATMInterface {
     private static Map<Integer, User> users = new HashMap<>();
     private static User currentUser;
     private static Scanner scanner = new Scanner(System.in);
+    static int userId = 1001;
 
     public static void main(String[] args) {
         System.out.println("Welcome to the ATM Interface!");
-
         int choice;
         do {
             System.out.println("\n---- Main Menu ----");
@@ -63,7 +65,7 @@ public class ATMInterface {
         }
 
         User newUser = new User(name, pin, 0.0);
-        users.put(pin, newUser);
+        users.put(userId++, newUser);
 
         System.out.println("Registration successful. Your user ID is: " + pin);
     }
@@ -74,8 +76,8 @@ public class ATMInterface {
         System.out.print("Enter your PIN: ");
         int pin = scanner.nextInt();
 
-        User user = users.get(pin);
-        if (user != null && userId == pin) {
+        User user = users.get(userId);
+        if (user != null&& user.pin == pin) {
             currentUser = user;
             showMenu();
         } else {
