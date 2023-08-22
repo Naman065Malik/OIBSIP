@@ -67,7 +67,7 @@ public class ATMInterface {
         User newUser = new User(name, pin, 0.0);
         users.put(userId, newUser);
 
-        System.out.println("Registration successful. Your user ID is: " + UserId++);
+        System.out.println("Registration successful. Your user ID is: " + userId++);
     }
 
     private static void loginUser() {
