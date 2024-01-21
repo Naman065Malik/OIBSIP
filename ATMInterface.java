@@ -55,6 +55,7 @@ public class ATMInterface {
     private static void registerUser() {
         System.out.print("Enter your name: ");
         String name = scanner.next();
+        scanner = new Scanner(System.in);//reintialize the object and flush-out all the keyinputs
         System.out.print("Enter a 4-digit PIN: ");
         int pin = scanner.nextInt();
 
