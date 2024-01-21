@@ -26,6 +26,7 @@ public class NumberGuessingGame {
             System.out.println("3. Exit");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
+            scanner = new Scanner(System.in);//this will reintialize the object and flush out value cached from keyboard
 
             switch (choice) {
                 case 1:
@@ -47,7 +48,8 @@ public class NumberGuessingGame {
 
     private static void playGame(Scanner scanner, ArrayList<Player> leaderboard) {
         System.out.print("Enter your name: ");
-        String playerName = scanner.next();
+        String playerName = scanner.nextLine();
+        scanner = new Scanner(System.in);//this will reintialize the object and flush out value cached from keyboard
 
         System.out.print("Enter the minimum value of the range: ");
         int minRange = scanner.nextInt();
@@ -86,6 +88,7 @@ public class NumberGuessingGame {
         if (roundsTaken > 10) {
             System.out.println("Sorry, you've run out of rounds. The secret number was " + secretNumber + ".");
         }
+
     }
 
     private static void showLeaderboard(ArrayList<Player> leaderboard) {
